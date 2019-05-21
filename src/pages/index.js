@@ -49,7 +49,7 @@ class BugFactory {
 class Game {
   squashCount = 0
   bugs = []
-  gameDurationSeconds = 5
+  gameDurationSeconds = 30
   gameDurationRemaining = this.gameDurationSeconds
   gameContainer = null
   gameCountdown = null

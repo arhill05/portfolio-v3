@@ -150,6 +150,11 @@ a {
     .layout-wrapper {
         min-height: fit-content;
     }
+
+    .intro-text,
+    .game-countdown {
+        font-size: 28px;
+    }
 }
 
 @media screen and (max-width: 1440px) {
@@ -189,6 +194,7 @@ a {
     align-items: center;
     justify-content: center;
     z-index: 50;
+    background-color: rgba(255,255,255,0.5);
 }
 
 .game-countdown {
@@ -212,6 +218,12 @@ a {
     animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
+.intro-text {
+  margin: 1em;
+  padding: .5em;
+  opacity: 1;
+}
+
 .intro-text,
 .game-countdown {
     opacity: 1;
@@ -219,6 +231,7 @@ a {
     color: red;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
     font-family: 'Bangers', cursive;
+    text-align: center;
 }
 
 .intro-text.fade-out,
