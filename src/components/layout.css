@@ -649,7 +649,8 @@ pre tt:after {
 
 @media only screen and (max-width: 768px) {
   body {
-    height: 100%;
+    height: unset;
+    min-height: 100%;
   }
 
   .layout-wrapper {
