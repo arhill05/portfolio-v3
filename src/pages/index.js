@@ -49,12 +49,12 @@ class BugFactory {
 class Game {
   squashCount = 0
   bugs = []
-  gameDurationSeconds = 30
-  gameDurationRemaining = this.gameDurationSeconds;
+  gameDurationSeconds = 5
+  gameDurationRemaining = this.gameDurationSeconds
   gameContainer = null
-  gameCountdown = null;
+  gameCountdown = null
   gameInterval = null
-  countdownInterval = null;
+  countdownInterval = null
   bugFactory = null
 
   async start() {
@@ -64,12 +64,12 @@ class Game {
     this.gameContainer = this.createContainer()
     this.bugFactory = new BugFactory(height, width, this.squashCallback)
     await this.showIntro()
-    this.gameCountdown = this.createCountdown();
-    this.gameContainer.appendChild(this.gameCountdown);
+    this.gameCountdown = this.createCountdown()
+    this.gameContainer.appendChild(this.gameCountdown)
 
     this.countdownInterval = setInterval(() => {
-      this.gameDurationRemaining--;
-      this.gameCountdown.innerText = this.gameDurationRemaining;
+      this.gameDurationRemaining--
+      this.gameCountdown.innerText = this.gameDurationRemaining
     }, 1000)
 
     this.gameInterval = setInterval(() => {
@@ -78,23 +78,33 @@ class Game {
       this.gameContainer.appendChild(bugElement)
     }, 400)
 
-    setTimeout(() => {
+    setTimeout(async () => {
       this.end()
     }, this.gameDurationSeconds * 1000)
   }
 
+  async showEndScreen() {
+    await this.doEmphasisText(
+      `Thanks for your help! You squashed ${this.squashCount} bugs!`,
+      5000
+    )
+  }
+
   async showIntro() {
     return new Promise(async resolve => {
-      await this.doIntroText("You found a bug! Squash as many more as you can!", 3000)
-      await this.doIntroText("3...")
-      await this.doIntroText("2...")
-      await this.doIntroText("1...")
-      await this.doIntroText("GO!")
+      await this.doEmphasisText(
+        "You found a bug! Squash as many more as you can!",
+        3000
+      )
+      await this.doEmphasisText("3...")
+      await this.doEmphasisText("2...")
+      await this.doEmphasisText("1...")
+      await this.doEmphasisText("GO!")
       resolve()
     })
   }
 
-  doIntroText(text, screenDuration = 750) {
+  doEmphasisText(text, screenDuration = 750) {
     return new Promise((resolve, reject) => {
       const element = document.createElement("h2")
       element.innerText = text
@@ -113,26 +123,32 @@ class Game {
   createContainer() {
     const container = document.createElement("div")
     container.classList.add("game-container")
-    document.body.appendChild(container);
+    document.body.appendChild(container)
     return container
   }
 
   createCountdown() {
-    const countdown = document.createElement("div");
-    countdown.innerHTML = this.gameDurationRemaining;
-    countdown.classList.add("game-countdown");
-    return countdown;
+    const countdown = document.createElement("div")
+    countdown.innerHTML = this.gameDurationRemaining
+    countdown.classList.add("game-countdown")
+    return countdown
   }
 
   end() {
-    clearInterval(this.gameInterval)
-    clearInterval(this.countdownInterval);
-    this.gameDurationRemaining = this.gameDurationSeconds;
-    this.bugs.forEach(bug => this.bugFactory.animateSquash(bug))
-    console.log(`you squashed ${this.squashCount} bugs!`)
-    setTimeout(() => {
-      this.gameContainer.remove()
-    }, 1500)
+    return new Promise(resolve => {
+      clearInterval(this.gameInterval)
+      clearInterval(this.countdownInterval)
+      this.gameDurationRemaining = this.gameDurationSeconds
+      this.bugs.forEach(bug => this.bugFactory.animateSquash(bug))
+      setTimeout(async () => {
+        await this.doEmphasisText(
+          `Thanks for your help! You squashed ${this.squashCount} bugs!`,
+          5000
+        )
+        this.gameContainer.remove()
+        resolve()
+      }, 1500)
+    })
   }
 
   squashCallback = () => {
