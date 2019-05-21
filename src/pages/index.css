@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  color: var(--primary-brand-color);
+  font-family: "Bangers", cursive;
+  letter-spacing: var(--bangers-font-spacing);
+}
+
+.hero__content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 64px;
+  grid-area: hero-content;
+}
+
+.love-to-work {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 1.5em 0;
+}
+
+.love-to-work button {
+  margin: 1em;
+  background-color: var(--primary-brand-color);
+  font-family: "Bangers", cursive;
+  letter-spacing: var(--bangers-font-spacing);
+  font-size: 1.5em;
+  border: none;
+  padding: 8px 16px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px 2px #5c0059;
+  transition: all 0.05s linear;
+}
+
+.love-to-work button:hover {
+  box-shadow: 3px 3px 0px 3px #5c0059;
+  transition: all 0.05s linear;
+}
+
+.love-to-work button:active {
+  box-shadow: none;
+  background-color: #5c0059;
+  transition: all 0.025s linear;
+}
+
+.hero__content h1 {
+  font-size: 6em;
+  margin: 0;
+}
+
+.hero__content p {
+  color: var(--primary-brand-color);
+  font-size: 2em;
+  font-family: "Bangers", cursive;
+  letter-spacing: var(--bangers-font-spacing);
+  margin: 8px 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-areas:
+    "hero-content hero-image"
+    "hero-icons hero-icons";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 8fr 1fr;
+  height: 100%;
+}
+
+.hero__image-container {
+  grid-area: hero-image;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__image-container img {
+  width: 70%;
+  box-shadow: 12px 12px 0px 4px var(--primary-brand-color);
+}
+
+.hero__icons {
+  grid-area: hero-icons;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__icons i {
+  margin: 0 24px;
+  font-size: 2em;
+  color: var(--primary-brand-color);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    grid-template-areas: "hero-image" "hero-content" "hero-icons";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 1.5em 0;
+  }
+
+  .hero__content {
+    padding: 1em;
+  }
+  .hero__content h1 {
+    font-size: 2.5em;
+    text-align: center;
+  }
+
+  .hero__content p {
+    font-size: 1.2em;
+  }
+
+  .tag-lines {
+    margin: 2.5em 0;
+  }
+
+  .love-to-work {
+    font-size: 1em;
+  }
+
+  .love-to-work button {
+    font-size: 1.5em;
+  }
+
+  .hero__image-container {
+    margin-bottom: 2em;
+  }
+
+  .hero__image-container img {
+    width: 80%;
+    box-shadow: 8px 8px 0px 3px var(--primary-brand-color);
+  }
+}
