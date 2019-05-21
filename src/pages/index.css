@@ -87,6 +87,8 @@ a {
 .hero__image-container img {
   width: 70%;
   box-shadow: 12px 12px 0px 4px var(--primary-brand-color);
+  position: relative;
+  z-index: 2;
 }
 
 .hero__icons {
@@ -143,4 +145,90 @@ a {
     width: 80%;
     box-shadow: 8px 8px 0px 3px var(--primary-brand-color);
   }
+
+  .layout-wrapper {
+    min-height: fit-content;
+  }
+}
+
+.hero__image-container .bug {
+  position: relative;
+  z-index: 1;
+  transform: rotate(123deg);
+  right: 2px;
+  top: 11px;
+}
+
+.game-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bug {
+  cursor: pointer;
+  position: fixed;
+  color: red;
+  font-size: 35px;
+}
+
+.bug.animate {
+  animation: wiggle 0.42s both infinite;
+}
+
+.bug.squash-shake {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.bug.squash-fade {
+  animation: none;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-30deg);
+  }
+
+  50% {
+    transform: rotate(30deg);
+  }
+
+  /* 30%, 50%, 70% {
+      transform: rotate(-10deg);
+    }
+
+    40%, 60% {
+      transform: rotate(10deg);
+    } */
 }

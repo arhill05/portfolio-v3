@@ -2,10 +2,106 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import './index.css';
+import "./index.css"
 
 const onGetInTouchClick = () => {
-  document.location.href="mailto:me@andrewhill.io";
+  document.location.href = "mailto:me@andrewhill.io"
+}
+
+class BugFactory {
+  height = 0
+  width = 0
+  clickCallback = null
+  bugCount = 0
+  constructor(height, width, clickCallback) {
+    this.height = height
+    this.width = width
+    this.clickCallback = clickCallback
+  }
+  createBugElement() {
+    const randomX = Math.floor(Math.random() * this.width) + 1
+    const randomY = Math.floor(Math.random() * this.height) + 1
+    const el = document.createElement("i")
+    el.classList.add("bug", "animate", "fas", "fa-bug")
+    el.style.top = randomY + "px"
+    el.style.left = randomX + "px"
+    el.id = `enemy-${this.bugCount}`
+    el.onclick = e => {
+      this.clickCallback()
+      this.animateSquash(el)
+    }
+    this.bugCount++
+    return el
+  }
+
+  animateSquash(element) {
+    element.classList.add("squash-shake")
+    setTimeout(() => {
+      element.classList.remove("squash-shake")
+      element.classList.add("squash-fade")
+      setTimeout(() => {
+        element.remove()
+      }, 300)
+    }, 1000)
+  }
+}
+
+class Game {
+  squashCount = 0
+  bugs = []
+  gameDurationSeconds = 5
+  gameContainer = null
+  gameInterval = null
+  bugFactory = null
+
+  start() {
+    const height = document.body.clientHeight
+    const width = document.body.clientWidth
+
+    this.gameContainer = this.createContainer()
+    this.bugFactory = new BugFactory(height, width, this.squashCallback)
+    this.showIntro();
+    this.gameInterval = setInterval(() => {
+      const bugElement = this.bugFactory.createBugElement()
+      this.bugs.push(bugElement)
+      this.gameContainer.appendChild(bugElement)
+    }, 400)
+
+    setTimeout(() => {
+      this.end()
+    }, this.gameDurationSeconds * 1000)
+  }
+
+  showIntro() {
+    const count3 = document.createElement("h3");
+    count3.innerText = "3...";
+    this.gameContainer.appendChild(count3);
+  }
+
+  createContainer() {
+    const container = document.createElement("div")
+    container.classList.add("game-container")
+    document.body.appendChild(container)
+    return container
+  }
+
+  end() {
+    clearInterval(this.gameInterval)
+    this.bugs.forEach(bug => this.bugFactory.animateSquash(bug))
+    console.log(`you squashed ${this.squashCount} bugs!`)
+    setTimeout(() => {
+      this.gameContainer.remove()
+    }, 1500)
+  }
+
+  squashCallback = () => {
+    this.squashCount++
+  }
+}
+
+const onStartGameClick = () => {
+  const game = new Game()
+  game.start()
 }
 
 const IndexPage = () => (
@@ -16,9 +112,9 @@ const IndexPage = () => (
         <div>
           <h1>Hello, I'm Drew Hill</h1>
           <div className="tag-lines">
-            <p>// Full Stack Developer</p>
-            <p>// JavaScript Lover</p>
-            <p>// Mechanical Keyboard Enthusiast</p>
+            <p>{"// Full Stack Developer"}</p>
+            <p>{"// JavaScript Lover"}</p>
+            <p>{"// Mechanical Keyboard Enthusiast"}</p>
           </div>
           <div className="love-to-work">
             <div>
@@ -34,6 +130,7 @@ const IndexPage = () => (
           src="https://res.cloudinary.com/df3ikytgy/image/upload/q_auto:best/v1557449085/portfolio/IMG_1398.jpg"
           alt="Drew and his significant other"
         />
+        <i id="game-start" className="bug fas fa-bug" onClick={onStartGameClick}></i>
       </div>
       <div className="hero__icons">
         <a href="https://twitter.com/drewhilldev">
