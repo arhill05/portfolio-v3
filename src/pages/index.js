@@ -38,7 +38,7 @@ class BugFactory {
     element.classList.add("squash-shake")
     setTimeout(() => {
       element.classList.remove("squash-shake")
-      element.classList.add("squash-fade")
+      element.classList.add("fade-out")
       setTimeout(() => {
         element.remove()
       }, 300)
@@ -54,13 +54,13 @@ class Game {
   gameInterval = null
   bugFactory = null
 
-  start() {
+  async start() {
     const height = document.body.clientHeight
     const width = document.body.clientWidth
 
     this.gameContainer = this.createContainer()
     this.bugFactory = new BugFactory(height, width, this.squashCallback)
-    this.showIntro();
+    await this.showIntro()
     this.gameInterval = setInterval(() => {
       const bugElement = this.bugFactory.createBugElement()
       this.bugs.push(bugElement)
@@ -72,10 +72,30 @@ class Game {
     }, this.gameDurationSeconds * 1000)
   }
 
-  showIntro() {
-    const count3 = document.createElement("h3");
-    count3.innerText = "3...";
-    this.gameContainer.appendChild(count3);
+  async showIntro() {
+    return new Promise(async resolve => {
+      await this.doIntroText("3...")
+      await this.doIntroText("2...")
+      await this.doIntroText("1...")
+      await this.doIntroText("GO!")
+      resolve()
+    })
+  }
+
+  doIntroText(text) {
+    return new Promise((resolve, reject) => {
+      const element = document.createElement("h2")
+      element.innerText = text
+      this.gameContainer.appendChild(element)
+      element.classList.add("intro-text")
+      setTimeout(() => {
+        element.classList.add("fade-out")
+        setTimeout(() => {
+          element.remove()
+          resolve()
+        }, 250)
+      }, 750)
+    })
   }
 
   createContainer() {
@@ -130,7 +150,11 @@ const IndexPage = () => (
           src="https://res.cloudinary.com/df3ikytgy/image/upload/q_auto:best/v1557449085/portfolio/IMG_1398.jpg"
           alt="Drew and his significant other"
         />
-        <i id="game-start" className="bug fas fa-bug" onClick={onStartGameClick}></i>
+        <i
+          id="game-start"
+          className="bug fas fa-bug"
+          onClick={onStartGameClick}
+        />
       </div>
       <div className="hero__icons">
         <a href="https://twitter.com/drewhilldev">
