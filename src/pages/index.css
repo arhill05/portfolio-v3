@@ -10,7 +10,7 @@ h5,
 h6,
 a {
   color: var(--primary-brand-color);
-  font-family: "Bangers", cursive;
+  font-family: 'Bangers', cursive;
   letter-spacing: var(--bangers-font-spacing);
 }
 
@@ -32,7 +32,7 @@ a {
 .love-to-work button {
   margin: 1em;
   background-color: var(--primary-brand-color);
-  font-family: "Bangers", cursive;
+  font-family: 'Bangers', cursive;
   letter-spacing: var(--bangers-font-spacing);
   font-size: 1.5em;
   border: none;
@@ -62,7 +62,7 @@ a {
 .hero__content p {
   color: var(--primary-brand-color);
   font-size: 2em;
-  font-family: "Bangers", cursive;
+  font-family: 'Bangers', cursive;
   letter-spacing: var(--bangers-font-spacing);
   margin: 8px 0;
 }
@@ -70,8 +70,8 @@ a {
 .hero {
   display: grid;
   grid-template-areas:
-    "hero-content hero-image"
-    "hero-icons hero-icons";
+    'hero-content hero-image'
+    'hero-icons hero-icons';
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 8fr 1fr;
   height: 100%;
@@ -107,7 +107,7 @@ a {
 
 @media screen and (max-width: 768px) {
   .hero {
-    grid-template-areas: "hero-image" "hero-content" "hero-icons";
+    grid-template-areas: 'hero-image' 'hero-content' 'hero-icons';
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     padding: 1.5em 0;
@@ -230,7 +230,7 @@ a {
   font-size: 48px;
   color: red;
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
-  font-family: "Bangers", cursive;
+  font-family: 'Bangers', cursive;
   text-align: center;
 }
 
