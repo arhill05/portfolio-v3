@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 h1,
@@ -9,274 +9,272 @@ h4,
 h5,
 h6,
 a {
-    color: var(--primary-brand-color);
-    font-family: "Bangers", cursive;
-    letter-spacing: var(--bangers-font-spacing);
+  color: var(--primary-brand-color);
+  font-family: "Bangers", cursive;
+  letter-spacing: var(--bangers-font-spacing);
 }
 
 .hero__content {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 64px;
-    grid-area: hero-content;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 64px;
+  grid-area: hero-content;
 }
 
 .love-to-work {
-    font-size: 1.5em;
-    text-align: center;
-    margin: 1.5em 0;
+  font-size: 1.5em;
+  text-align: center;
+  margin: 1.5em 0;
 }
 
 .love-to-work button {
-    margin: 1em;
-    background-color: var(--primary-brand-color);
-    font-family: "Bangers", cursive;
-    letter-spacing: var(--bangers-font-spacing);
-    font-size: 1.5em;
-    border: none;
-    padding: 8px 16px;
-    color: #fff;
-    cursor: pointer;
-    box-shadow: 2px 2px 0px 2px #5c0059;
-    transition: all 0.05s linear;
+  margin: 1em;
+  background-color: var(--primary-brand-color);
+  font-family: "Bangers", cursive;
+  letter-spacing: var(--bangers-font-spacing);
+  font-size: 1.5em;
+  border: none;
+  padding: 8px 16px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px 2px #5c0059;
+  transition: all 0.05s linear;
 }
 
 .love-to-work button:hover {
-    box-shadow: 3px 3px 0px 3px #5c0059;
-    transition: all 0.05s linear;
+  box-shadow: 3px 3px 0px 3px #5c0059;
+  transition: all 0.05s linear;
 }
 
 .love-to-work button:active {
-    box-shadow: none;
-    background-color: #5c0059;
-    transition: all 0.025s linear;
+  box-shadow: none;
+  background-color: #5c0059;
+  transition: all 0.025s linear;
 }
 
 .hero__content h1 {
-    font-size: 6em;
-    margin: 0;
+  font-size: 6em;
+  margin: 0;
 }
 
 .hero__content p {
-    color: var(--primary-brand-color);
-    font-size: 2em;
-    font-family: "Bangers", cursive;
-    letter-spacing: var(--bangers-font-spacing);
-    margin: 8px 0;
+  color: var(--primary-brand-color);
+  font-size: 2em;
+  font-family: "Bangers", cursive;
+  letter-spacing: var(--bangers-font-spacing);
+  margin: 8px 0;
 }
 
 .hero {
-    display: grid;
-    grid-template-areas:
-        "hero-content hero-image"
-        "hero-icons hero-icons";
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 8fr 1fr;
-    height: 100%;
+  display: grid;
+  grid-template-areas:
+    "hero-content hero-image"
+    "hero-icons hero-icons";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 8fr 1fr;
+  height: 100%;
 }
 
 .hero__image-container {
-    grid-area: hero-image;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  grid-area: hero-image;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero__image-container img {
-    width: 70%;
-    box-shadow: 12px 12px 0px 4px var(--primary-brand-color);
-    position: relative;
-    z-index: 2;
+  width: 70%;
+  box-shadow: 12px 12px 0px 4px var(--primary-brand-color);
+  position: relative;
+  z-index: 2;
 }
 
 .hero__icons {
-    grid-area: hero-icons;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-area: hero-icons;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero__icons i {
-    margin: 0 24px;
-    font-size: 2em;
-    color: var(--primary-brand-color);
-    cursor: pointer;
+  margin: 0 24px;
+  font-size: 2em;
+  color: var(--primary-brand-color);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
-    .hero {
-        grid-template-areas: "hero-image""hero-content""hero-icons";
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        padding: 1.5em 0;
-    }
+  .hero {
+    grid-template-areas: "hero-image" "hero-content" "hero-icons";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 1.5em 0;
+  }
 
-    .hero__content {
-        padding: 1em;
-    }
+  .hero__content {
+    padding: 1em;
+  }
 
-    .hero__content h1 {
-        font-size: 2.5em;
-        text-align: center;
-    }
+  .hero__content h1 {
+    font-size: 2.5em;
+    text-align: center;
+  }
 
-    .hero__content p {
-        font-size: 1.2em;
-    }
+  .hero__content p {
+    font-size: 1.2em;
+  }
 
-    .tag-lines {
-        margin: 2.5em 0;
-    }
+  .tag-lines {
+    margin: 2.5em 0;
+  }
 
-    .love-to-work {
-        font-size: 1em;
-    }
+  .love-to-work {
+    font-size: 1em;
+  }
 
-    .love-to-work button {
-        font-size: 1.5em;
-    }
+  .love-to-work button {
+    font-size: 1.5em;
+  }
 
-    .hero__image-container {
-        margin-bottom: 2em;
-    }
+  .hero__image-container {
+    margin-bottom: 2em;
+  }
 
-    .hero__image-container img {
-        width: 80%;
-        box-shadow: 8px 8px 0px 3px var(--primary-brand-color);
-    }
+  .hero__image-container img {
+    width: 80%;
+    box-shadow: 8px 8px 0px 3px var(--primary-brand-color);
+  }
 
-    .layout-wrapper {
-        min-height: fit-content;
-    }
+  .layout-wrapper {
+    min-height: fit-content;
+  }
 
-    .intro-text,
-    .game-countdown {
-        font-size: 28px;
-    }
+  .intro-text,
+  .game-countdown {
+    font-size: 28px;
+  }
 }
 
 @media screen and (max-width: 1440px) {
-    .hero__content h1 {
-        font-size: 4em;
-    }
+  .hero__content h1 {
+    font-size: 4em;
+  }
 
-    .hero__content p {
-        font-size: 1.8em;
-    }
+  .hero__content p {
+    font-size: 1.8em;
+  }
 
-    .love-to-work {
-        font-size: 1.35em;
-    }
+  .love-to-work {
+    font-size: 1.35em;
+  }
 
-    .love-to-work button {
-        font-size: 1.25em;
-    }
+  .love-to-work button {
+    font-size: 1.25em;
+  }
 }
 
 .hero__image-container .bug {
-    position: relative;
-    z-index: 1;
-    transform: rotate(123deg);
-    right: 2px;
-    top: 11px;
+  position: relative;
+  z-index: 1;
+  transform: rotate(123deg);
+  right: 2px;
+  top: 11px;
 }
 
 .game-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 50;
-    background-color: rgba(255,255,255,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .game-countdown {
-    position: fixed;
-    top: 36px;
-    right: 36px;
+  position: fixed;
+  top: 36px;
+  right: 36px;
 }
 
 .bug {
-    cursor: pointer;
-    position: fixed;
-    color: red;
-    font-size: 35px;
+  cursor: pointer;
+  position: fixed;
+  color: red;
+  font-size: 35px;
 }
 
 .bug.animate {
-    animation: wiggle 0.42s both infinite;
+  animation: wiggle 0.42s both infinite;
 }
 
 .bug.squash-shake {
-    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
 .intro-text {
   margin: 1em;
-  padding: .5em;
+  padding: 0.5em;
   opacity: 1;
 }
 
 .intro-text,
 .game-countdown {
-    opacity: 1;
-    font-size: 48px;
-    color: red;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
-    font-family: 'Bangers', cursive;
-    text-align: center;
+  opacity: 1;
+  font-size: 48px;
+  color: red;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+  font-family: "Bangers", cursive;
+  text-align: center;
 }
 
 .intro-text.fade-out,
 .bug.fade-out {
-    animation: none;
-    opacity: 0;
-    transition: all 0.3s ease-out
+  animation: none;
+  opacity: 0;
+  transition: all 0.3s ease-out;
 }
 
 @keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
 
-    10%,
-    90% {
-        transform: translate3d(-1px, 0, 0);
-    }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
 
-    20%,
-    80% {
-        transform: translate3d(2px, 0, 0);
-    }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
 
-    30%,
-    50%,
-    70% {
-        transform: translate3d(-4px, 0, 0);
-    }
-
-    40%,
-    60% {
-        transform: translate3d(4px, 0, 0);
-    }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 @keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-30deg);
+  }
 
-    0%,
-    100% {
-        transform: rotate(-30deg);
-    }
+  50% {
+    transform: rotate(30deg);
+  }
 
-    50% {
-        transform: rotate(30deg);
-    }
-
-    /* 30%, 50%, 70% {
+  /* 30%, 50%, 70% {
       transform: rotate(-10deg);
     }
 
