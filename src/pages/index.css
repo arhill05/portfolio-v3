@@ -11,6 +11,7 @@ h6,
 a {
   color: var(--primary-brand-color);
   font-family: 'Bangers', cursive;
+  font-display: optional;
   letter-spacing: var(--bangers-font-spacing);
 }
 
@@ -33,6 +34,7 @@ a {
   margin: 1em;
   background-color: var(--primary-brand-color);
   font-family: 'Bangers', cursive;
+  font-display: optional;
   letter-spacing: var(--bangers-font-spacing);
   font-size: 1.5em;
   border: none;
@@ -63,6 +65,7 @@ a {
   color: var(--primary-brand-color);
   font-size: 2em;
   font-family: 'Bangers', cursive;
+  font-display: optional;
   letter-spacing: var(--bangers-font-spacing);
   margin: 8px 0;
 }
