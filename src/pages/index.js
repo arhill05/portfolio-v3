@@ -37,7 +37,7 @@ const IndexPage = () => (
       </div>
       <div className="hero__image-container">
         <img
-          src="https://res.cloudinary.com/df3ikytgy/image/upload/q_auto:best/w_auto,dpr_auto,f_auto/v1557449085/portfolio/IMG_1398.jpg"
+          src="https://res.cloudinary.com/df3ikytgy/image/upload/q_auto:eco/w_auto,dpr_auto,f_auto/v1557449085/portfolio/IMG_1398.jpg"
           alt="Drew and his significant other"
         />
         <i
