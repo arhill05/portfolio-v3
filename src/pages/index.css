@@ -10,7 +10,7 @@ h5,
 h6,
 a {
   color: var(--primary-brand-color);
-  font-family: 'Bangers', cursive;
+  font-family: 'Bangers', monospace;
   font-display: optional;
   letter-spacing: var(--bangers-font-spacing);
 }
@@ -33,7 +33,7 @@ a {
 .love-to-work button {
   margin: 1em;
   background-color: var(--primary-brand-color);
-  font-family: 'Bangers', cursive;
+  font-family: 'Bangers', monospace;
   font-display: optional;
   letter-spacing: var(--bangers-font-spacing);
   font-size: 1.5em;
@@ -64,7 +64,7 @@ a {
 .hero__content p {
   color: var(--primary-brand-color);
   font-size: 2em;
-  font-family: 'Bangers', cursive;
+  font-family: 'Bangers', monospace;
   font-display: optional;
   letter-spacing: var(--bangers-font-spacing);
   margin: 8px 0;
@@ -233,7 +233,7 @@ a {
   font-size: 48px;
   color: red;
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
-  font-family: 'Bangers', cursive;
+  font-family: 'Bangers', monospace;
   text-align: center;
 }
 
